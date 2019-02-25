@@ -1,3 +1,6 @@
+var errorSchema = require('../common/error-schema')
+var notFoundSchema = require('../common/not-found-schema')
+
 module.exports = {
   keepAlive: {
     description: 'Get the status of the API',
@@ -5,22 +8,11 @@ module.exports = {
     summary: 'Obtain the status of the API',
     response: {
       200: {
-        description: 'Succesful response',
+        description: 'Successful response',
         type: 'string'
       },
-      400: {
-        description: 'Not Found response',
-        type: 'string'
-      },
-      500: {
-        description: 'Error response',
-        type: 'object',
-        properties: {
-          error: { type: 'string' },
-          message: { type: 'string' },
-          statusCode: { type: 'number' }
-        }
-      }
+      400: notFoundSchema,
+      500: errorSchema
     }
   }
 }
