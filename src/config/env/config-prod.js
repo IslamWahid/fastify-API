@@ -8,6 +8,12 @@ const env = {
       key: null, // .key file path
       cert: null // .crt file path
     }
+  },
+  mongodb: {
+    url: 'mongodb://mongo/labyrinthDb',
+    options: {
+      useNewUrlParser: true
+    }
   }
 }
 

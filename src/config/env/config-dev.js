@@ -4,6 +4,12 @@ const env = {
       prettyPrint: true,
       level: 'info'
     }
+  },
+  mongodb: {
+    url: 'mongodb://mongo/labyrinthDb',
+    options: {
+      useNewUrlParser: true
+    }
   }
 }
 

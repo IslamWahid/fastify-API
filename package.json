@@ -1,21 +1,26 @@
 {
-  "name": "fastify-labyrinth-API",
+  "name": "fastify-API",
   "version": "1.0.0",
-  "description": "labyrinth-API",
+  "description": "fastify-API",
   "main": "app.js",
   "scripts": {
-    "start:dev": "eslint ./src && cross-env NODE_ENV=dev nodemon src/app.js",
+    "start:dev": "eslint ./src && cross-env NODE_ENV=dev nodemon -L src/app.js",
     "start": "eslint ./src && cross-env NODE_ENV=prod nodemon src/app.js",
     "test": "eslint ./src && cross-env NODE_ENV=test tap ./test/*.js --cov 90"
   },
-  "author": "islamWahid",
+  "author": "IslamWahid",
   "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/IslamWahid/fastify-API.git"
+  },
   "dependencies": {
     "cors": "^2.8.4",
     "cross-env": "^5.1.4",
     "eslint": "^4.19.1",
     "fastify": "^1.3.1",
     "fastify-swagger": "^0.8.3",
+    "mongoose": "^5.4.15",
     "nodemon": "^1.17.3"
   },
   "devDependencies": {
