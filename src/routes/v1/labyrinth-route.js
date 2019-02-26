@@ -1,5 +1,5 @@
 const labyrinthSchema = require('../../schemas/v1/labyrinth-schema')
-const labyrinthHandler = require('../../handlers/v1/labyrinth-handler')
+const labyrinthController = require('../../controllers/v1/labyrinth-controller')
 
 /**
  * labyrinth endpoints
@@ -9,19 +9,19 @@ const routes = [
     method: 'GET',
     url: '/labyrinth/:id',
     schema: labyrinthSchema.getLabyrinth,
-    handler: labyrinthHandler.getLabyrinth
+    handler: labyrinthController.getLabyrinth
   },
   {
     method: 'GET',
     url: '/labyrinth',
     schema: labyrinthSchema.getAllLabyrinths,
-    handler: labyrinthHandler.getAllLabyrinths
+    handler: labyrinthController.getAllLabyrinths
   },
   {
     method: 'POST',
     url: '/labyrinth',
     schema: labyrinthSchema.createLabyrinth,
-    handler: labyrinthHandler.createLabyrinth
+    handler: labyrinthController.createLabyrinth
   }
 ]
 

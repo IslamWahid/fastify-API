@@ -1,5 +1,7 @@
+const labyrinthModel = require('../../models/labyrinth-model')
+
 /**
- * get labyrinth handler
+ * get labyrinth controller
  *
  * @param {FastifyRequest} request
  * @param {FastifyReply} reply
@@ -11,17 +13,20 @@ const getLabyrinth = (request, reply) => {
 }
 
 /**
- * get all labyrinth handler
+ * get all labyrinth controller
  *
  * @param {FastifyRequest} request
  * @param {FastifyReply} reply
  */
-const getAllLabyrinths = (request, reply) => {
-  reply.code(200).send({})
+const getAllLabyrinths = async (request, reply) => {
+  const all = await labyrinthModel.find({})
+  request.log.info('all data')
+  request.log.info(all)
+  reply.code(200).send('all')
 }
 
 /**
- * create labyrinth handler
+ * create labyrinth controller
  *
  * @param {FastifyRequest} request
  * @param {FastifyReply} reply

@@ -1,5 +1,5 @@
 /**
- * Keep Alive handler
+ * Keep Alive controller
  *
  * @param {FastifyRequest} request
  * @param {FastifyReply} reply

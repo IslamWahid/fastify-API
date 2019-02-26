@@ -1,5 +1,5 @@
 const schema = require('../../schemas/v1/info-schema')
-const handler = require('../../handlers/v1/info-handler')
+const infoController = require('../../controllers/v1/info-controller')
 
 /**
  * Info routes endpoints
@@ -9,7 +9,7 @@ const routes = [
     method: 'GET',
     url: '/keep-alive',
     schema: schema.keepAlive,
-    handler: handler.keepAlive
+    handler: infoController.keepAlive
   }
 ]
 
