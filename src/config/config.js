@@ -19,12 +19,7 @@ const config = {
         basicAuth: {
           type: 'basic'
         }
-      },
-      security: [
-        {
-          basicAuth: []
-        }
-      ]
+      }
     },
     exposeRoute: true
   }

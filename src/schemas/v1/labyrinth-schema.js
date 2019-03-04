@@ -25,7 +25,12 @@ module.exports = {
       },
       400: notFoundSchema,
       500: errorSchema
-    }
+    },
+    security: [
+      {
+        basicAuth: []
+      }
+    ]
   },
 
   getAllLabyrinths: {
@@ -51,7 +56,12 @@ module.exports = {
       },
       400: notFoundSchema,
       500: errorSchema
-    }
+    },
+    security: [
+      {
+        basicAuth: []
+      }
+    ]
   },
 
   createLabyrinth: {
@@ -77,6 +87,11 @@ module.exports = {
       },
       400: notFoundSchema,
       500: errorSchema
-    }
+    },
+    security: [
+      {
+        basicAuth: []
+      }
+    ]
   }
 };
