@@ -1,4 +1,4 @@
-const mongoose = require('mongoose')
+const mongoose = require('mongoose');
 
 const labyrinthSchema = new mongoose.Schema({
   title: String,
@@ -9,6 +9,6 @@ const labyrinthSchema = new mongoose.Schema({
     type: Map,
     of: String
   }
-})
+});
 
-module.exports = mongoose.model('Labyrinth', labyrinthSchema)
+module.exports = mongoose.model('Labyrinth', labyrinthSchema);

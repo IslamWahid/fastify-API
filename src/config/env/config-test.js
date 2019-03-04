@@ -6,6 +6,6 @@ const env = {
       level: 'info'
     }
   }
-}
+};
 
-module.exports = env
+module.exports = env;

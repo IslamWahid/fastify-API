@@ -15,6 +15,6 @@ const env = {
       useNewUrlParser: true
     }
   }
-}
+};
 
-module.exports = env
+module.exports = env;

@@ -6,4 +6,4 @@ module.exports = {
     message: { type: 'string' },
     statusCode: { type: 'number' }
   }
-}
+};
