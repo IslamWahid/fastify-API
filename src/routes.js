@@ -1,5 +1,5 @@
-const fs = require('fs')
-const path = require('path')
+const fs = require('fs');
+const path = require('path');
 
 /**
  * Sync read routes directory for dynamic load
@@ -9,17 +9,17 @@ const path = require('path')
  * @param {Callback} next
  */
 const v1 = (fastify, opts, next) => {
-  const directory = path.join(__dirname, 'routes', 'v1')
+  const directory = path.join(__dirname, 'routes', 'v1');
 
   fs.readdirSync(directory).forEach(file => {
-    const routePath = path.join(directory, file)
-    const routes = require(routePath)
+    const routePath = path.join(directory, file);
+    const routes = require(routePath)(fastify);
     routes.forEach(function(route) {
-      fastify.route(route)
-    })
-  })
+      fastify.route(route);
+    });
+  });
 
-  next()
-}
+  next();
+};
 
-module.exports = { v1 }
+module.exports = { v1 };

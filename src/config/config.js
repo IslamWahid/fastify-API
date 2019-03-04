@@ -1,6 +1,6 @@
-const { version } = require('../../package')
+const { version } = require('../../package');
 
-const env = require(`./env/config-${process.env.NODE_ENV || 'prod'}`)
+const env = require(`./env/config-${process.env.NODE_ENV || 'prod'}`);
 
 const config = {
   name: 'API',
@@ -14,10 +14,20 @@ const config = {
       },
       schemes: [env.options.https ? 'https' : 'http'],
       consumes: ['application/json'],
-      produces: ['application/json']
+      produces: ['application/json'],
+      securityDefinitions: {
+        basicAuth: {
+          type: 'basic'
+        }
+      },
+      security: [
+        {
+          basicAuth: []
+        }
+      ]
     },
     exposeRoute: true
   }
-}
+};
 
-module.exports = { ...config, ...env }
+module.exports = { ...config, ...env };

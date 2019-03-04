@@ -6,7 +6,7 @@ const env = {
     }
   },
   mongodb: {
-    url: 'mongodb://mongo/labyrinthDb',
+    url: 'mongodb://192.168.99.100:27017/labyrinthDb',
     options: {
       useNewUrlParser: true
     }

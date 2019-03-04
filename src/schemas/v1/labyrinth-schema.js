@@ -1,5 +1,5 @@
-var errorSchema = require('../common/error-schema')
-var notFoundSchema = require('../common/not-found-schema')
+var errorSchema = require('../common/error-schema');
+var notFoundSchema = require('../common/not-found-schema');
 
 module.exports = {
   getLabyrinth: {
@@ -79,4 +79,4 @@ module.exports = {
       500: errorSchema
     }
   }
-}
+};
