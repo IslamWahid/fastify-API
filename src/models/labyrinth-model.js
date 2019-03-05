@@ -1,13 +1,22 @@
 const mongoose = require('mongoose');
 
 const labyrinthSchema = new mongoose.Schema({
-  title: String,
-  brand: String,
-  price: String,
-  age: Number,
-  services: {
-    type: Map,
-    of: String
+  playfield: [
+    {
+      x: Number,
+      y: Number,
+      type: {
+        type: String
+      }
+    }
+  ],
+  start: {
+    x: Number,
+    y: Number
+  },
+  end: {
+    x: Number,
+    y: Number
   }
 });
 

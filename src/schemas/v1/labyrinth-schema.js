@@ -20,7 +20,34 @@ module.exports = {
         description: 'Successful response',
         type: 'object',
         properties: {
-          id: { type: 'number' }
+          playfield: {
+            type: 'array',
+            items: {
+              type: 'object',
+              properties: {
+                x: { type: 'number' },
+                y: { type: 'number' },
+                type: {
+                  type: 'string',
+                  enum: ['blocked', 'empty']
+                }
+              }
+            }
+          },
+          start: {
+            type: 'object',
+            properties: {
+              x: { type: 'number' },
+              y: { type: 'number' }
+            }
+          },
+          end: {
+            type: 'object',
+            properties: {
+              x: { type: 'number' },
+              y: { type: 'number' }
+            }
+          }
         }
       },
       400: notFoundSchema,
@@ -37,15 +64,6 @@ module.exports = {
     description: 'Get all labyrinths',
     tags: ['API'],
     summary: 'Obtain all labyrinths ids',
-    params: {
-      type: 'object',
-      properties: {
-        id: {
-          type: 'number',
-          description: 'labyrinth id'
-        }
-      }
-    },
     response: {
       200: {
         description: 'Successful response',
@@ -68,17 +86,42 @@ module.exports = {
     description: 'create new labyrinth',
     tags: ['API'],
     summary: 'create new labyrinth and get its id',
-    params: {
+    body: {
       type: 'object',
+      required: ['playfield', 'start', 'end'],
       properties: {
-        id: {
-          type: 'number',
-          description: 'labyrinth id'
+        playfield: {
+          type: 'array',
+          items: {
+            type: 'object',
+            properties: {
+              x: { type: 'number' },
+              y: { type: 'number' },
+              type: {
+                type: 'string',
+                enum: ['blocked', 'empty']
+              }
+            }
+          }
+        },
+        start: {
+          type: 'object',
+          properties: {
+            x: { type: 'number' },
+            y: { type: 'number' }
+          }
+        },
+        end: {
+          type: 'object',
+          properties: {
+            x: { type: 'number' },
+            y: { type: 'number' }
+          }
         }
       }
     },
     response: {
-      200: {
+      201: {
         description: 'Successful response',
         type: 'object',
         properties: {

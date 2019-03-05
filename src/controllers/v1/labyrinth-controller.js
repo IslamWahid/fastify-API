@@ -31,8 +31,16 @@ const getAllLabyrinths = async (request, reply) => {
  * @param {FastifyRequest} request
  * @param {FastifyReply} reply
  */
-const createLabyrinth = (request, reply) => {
-  reply.code(200).send({});
+const createLabyrinth = async (request, reply) => {
+  try {
+    const { id } = await labyrinthModel.create({
+      ...request.body,
+      owner: request.userId
+    });
+    reply.code(201).send({ id });
+  } catch (e) {
+    request.log.error(e);
+  }
 };
 
 module.exports = { getLabyrinth, getAllLabyrinths, createLabyrinth };
