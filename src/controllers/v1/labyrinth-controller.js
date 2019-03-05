@@ -7,10 +7,14 @@ const Boom = require('boom');
  * @param {FastifyRequest} request
  * @param {FastifyReply} reply
  */
-const getLabyrinth = (request, reply) => {
-  reply.code(200).send({
-    id: request.params.id
-  });
+const getLabyrinth = async (request, reply) => {
+  try {
+    const labyrinth = await labyrinthModel.findById(request.params.id);
+    reply.send(labyrinth);
+  } catch (e) {
+    request.log.error(e);
+    return Boom.boomify(e);
+  }
 };
 
 /**

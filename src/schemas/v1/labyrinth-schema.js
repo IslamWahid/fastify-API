@@ -10,7 +10,7 @@ module.exports = {
       type: 'object',
       properties: {
         id: {
-          type: 'number',
+          type: 'string',
           description: 'labyrinth id'
         }
       }
@@ -125,7 +125,7 @@ module.exports = {
         description: 'Successful response',
         type: 'object',
         properties: {
-          id: { type: 'number' }
+          id: { type: 'string' }
         }
       },
       400: notFoundSchema,
