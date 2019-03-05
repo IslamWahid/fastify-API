@@ -1,11 +1,21 @@
+const crypto = require('crypto');
+const Boom = require('boom');
 const userService = require('./user-service');
 
 module.exports = async function validate(username, password, request) {
-  let user = await userService.getUser(username, password);
-
-  if (!user) {
-    user = await userService.createUser(username, password);
+  try {
+    let user = await userService.getUser(username, hashPassword(password));
+    if (!user) {
+      user = await userService.createUser(username, hashPassword(password));
+    }
+    request.userId = user.id;
+  } catch (e) {
+    return Boom.boomify(e);
   }
-
-  request.userId = user.id;
 };
+
+const hashPassword = password =>
+  crypto
+    .createHmac('sha256', 'secret')
+    .update(password)
+    .digest('hex');
