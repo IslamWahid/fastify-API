@@ -25,8 +25,10 @@ const getLabyrinth = async (request, reply) => {
  */
 const getAllLabyrinths = async (request, reply) => {
   try {
-    const labyrinths = await labyrinthModel.find({});
-    reply.send(labyrinths);
+    const labyrinthsIds = (await labyrinthModel.find({}, '_id')).map(
+      model => model.id
+    );
+    reply.send(labyrinthsIds);
   } catch (e) {
     request.log.error(e);
     return Boom.boomify(e);
