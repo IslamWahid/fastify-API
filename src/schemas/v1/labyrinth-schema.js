@@ -20,6 +20,9 @@ module.exports = {
         description: 'Successful response',
         type: 'object',
         properties: {
+          id: {
+            type: 'string'
+          },
           playfield: {
             type: 'array',
             items: {
@@ -67,9 +70,42 @@ module.exports = {
     response: {
       200: {
         description: 'Successful response',
-        type: 'object',
-        properties: {
-          id: { type: 'number' }
+        type: 'array',
+        items: {
+          type: 'object',
+          properties: {
+            id: {
+              type: 'string'
+            },
+            playfield: {
+              type: 'array',
+              items: {
+                type: 'object',
+                properties: {
+                  x: { type: 'number' },
+                  y: { type: 'number' },
+                  type: {
+                    type: 'string',
+                    enum: ['blocked', 'empty']
+                  }
+                }
+              }
+            },
+            start: {
+              type: 'object',
+              properties: {
+                x: { type: 'number' },
+                y: { type: 'number' }
+              }
+            },
+            end: {
+              type: 'object',
+              properties: {
+                x: { type: 'number' },
+                y: { type: 'number' }
+              }
+            }
+          }
         }
       },
       400: notFoundSchema,

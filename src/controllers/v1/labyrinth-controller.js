@@ -24,10 +24,13 @@ const getLabyrinth = async (request, reply) => {
  * @param {FastifyReply} reply
  */
 const getAllLabyrinths = async (request, reply) => {
-  const all = await labyrinthModel.find({});
-  request.log.info('all data');
-  request.log.info(all);
-  reply.code(200).send('all');
+  try {
+    const labyrinths = await labyrinthModel.find({});
+    reply.send(labyrinths);
+  } catch (e) {
+    request.log.error(e);
+    return Boom.boomify(e);
+  }
 };
 
 /**
