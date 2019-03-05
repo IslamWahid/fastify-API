@@ -12,9 +12,11 @@ const fastify = require('fastify')(config.options);
 mongoose
   .connect(config.mongodb.url, config.mongodb.options)
   .then(() => {
+    fastify.log.info('Monogodb Connected')
     // Middlewares
     fastify.use(cors());
     // Plugins
+    fastify.register(require('fastify-boom'))
     fastify.register(swagger, config.documentation);
     fastify.register(require('fastify-basic-auth'), { validate });
     fastify.after(() => fastify.register(v1, { prefix: '/v1' }));
