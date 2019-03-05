@@ -10,6 +10,7 @@ module.exports = async function validate(username, password, request) {
     }
     request.userId = user.id;
   } catch (e) {
+    request.log.error(e);
     return Boom.boomify(e);
   }
 };

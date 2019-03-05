@@ -1,4 +1,5 @@
 const labyrinthModel = require('../../models/labyrinth-model');
+const Boom = require('boom');
 
 /**
  * get labyrinth controller
@@ -40,6 +41,7 @@ const createLabyrinth = async (request, reply) => {
     reply.code(201).send({ id });
   } catch (e) {
     request.log.error(e);
+    return Boom.boomify(e);
   }
 };
 
