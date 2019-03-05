@@ -1,4 +1,4 @@
-var userModel = require('../models/user-model');
+const userModel = require('../models/user-model');
 
 module.exports = {
   getUser: (username, password) => userModel.findOne({ username, password }),

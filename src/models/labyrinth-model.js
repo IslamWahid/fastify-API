@@ -1,6 +1,8 @@
 const mongoose = require('mongoose');
+const ObjectId = mongoose.Schema.Types.ObjectId;
 
 const labyrinthSchema = new mongoose.Schema({
+  owner: ObjectId,
   playfield: [
     {
       x: Number,

@@ -1,5 +1,5 @@
-var errorSchema = require('../common/error-schema');
-var notFoundSchema = require('../common/not-found-schema');
+const errorSchema = require('../common/error-schema');
+const notFoundSchema = require('../common/not-found-schema');
 
 module.exports = {
   keepAlive: {

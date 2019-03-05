@@ -26,6 +26,20 @@ module.exports = fastify => {
       preHandler: fastify.basicAuth,
       schema: labyrinthSchema.createLabyrinth,
       handler: labyrinthController.createLabyrinth
+    },
+    {
+      method: 'PATCH',
+      url: '/labyrinth/:id/start/:x/:y',
+      preHandler: fastify.basicAuth,
+      schema: labyrinthSchema.updateLabyrinthTerminal,
+      handler: labyrinthController.updateLabyrinthStart
+    },
+    {
+      method: 'PATCH',
+      url: '/labyrinth/:id/end/:x/:y',
+      preHandler: fastify.basicAuth,
+      schema: labyrinthSchema.updateLabyrinthTerminal,
+      handler: labyrinthController.updateLabyrinthEnd
     }
   ];
 };
